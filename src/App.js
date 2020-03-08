@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+import Counter from "./components/counter/counter.component";
+import TodoList from "./components/todo-list/todo-list.component";
 
 function App() {
+  const [logged, setLogged] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hi !</h1>
+      <div>
+        <button onClick={() => setLogged(true)}>Log in</button>
+        <button onClick={() => setLogged(false)}>Log out</button>
+        <p>Logged in: {logged ? `true` : `false`}</p>
+      </div>
+      <Counter logged={logged} />
+      <hr />
+      <TodoList />
     </div>
   );
 }
